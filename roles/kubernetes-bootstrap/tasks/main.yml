@@ -19,7 +19,7 @@
 
 - name: Include task to configure docker
   include_tasks: setup_docker.yml
-  when: container_runtime == "doker"
+  when: container_runtime == "docker"
 
 - name: Include task to configure cri-o container runtime
   include_tasks: setup_crio.yml
