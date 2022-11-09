@@ -1,0 +1,19 @@
+---
+- name: Setup proxy
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  vars:
+    k8s_version: "1.22"
+    selinux_state: permissive
+    timezone: "Asia/Seoul"
+    k8s_cni: calico
+    container_runtime: containerd
+    pod_network_cidr: "172.16.0.0/16"
+    configure_firewalld: false
+    setup_proxy: false
+    proxy_server: "proxy.example.com:8080"
+    docker_proxy_exclude: "localhost,127.0.0.1"
+  roles:
+    - kubernetes-bootstrap
